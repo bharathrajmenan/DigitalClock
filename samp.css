@@ -9,37 +9,75 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #111;
-    font-family: 'Arial', sans-serif;
-    color: white;
+    background: #111; /* Dark background to highlight the digital clock */
+    font-family: 'Digital-7', sans-serif; /* Use a digital-style font */
+    color: #00FF00; /* Green color typical of old digital clocks */
     margin: 0;
+    overflow: hidden;
 }
 
+/* Container for the clock */
 .clock-container {
     text-align: center;
 }
 
+/* Main clock style resembling a digital clock display */
 .clock {
-    font-size: 5rem;
+    font-size: 8rem; /* Bigger font to resemble the digital clock display */
+    font-weight: bold;
     letter-spacing: 5px;
-    background: #222;
-    padding: 20px;
+    background: #000; /* Black background for classic digital feel */
+    padding: 20px 50px; /* Padding for spacing around the clock */
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Green glowing effect */
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Glowing green text */
     transition: all 0.3s ease-in-out;
+    position: relative;
 }
 
+/* Neon green effect on clock digits */
 .clock span {
     display: inline-block;
     animation: blink 1.5s infinite alternate;
+    color: #00FF00; /* Digital green color for the numbers */
 }
 
+/* Keyframes for a subtle blink effect to mimic digital clock flashing */
 @keyframes blink {
     0% {
         opacity: 1;
     }
     50% {
-        opacity: 0;
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Glow effect on hover */
+.clock-container:hover .clock {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 40px rgba(0, 255, 0, 0.8); /* Glowing effect on hover */
+}
+
+/* Background glow for a more retro, digital feeling */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 0, 0.5), rgba(255, 0, 0, 0.3)); /* Green and red neon glow */
+    z-index: -1;
+    animation: background-glow 10s infinite alternate;
+}
+
+/* Background animation to mimic an old-school glowing display */
+@keyframes background-glow {
+    0% {
+        opacity: 0.5;
     }
     100% {
         opacity: 1;
